@@ -6,188 +6,28 @@
         <div class="col-md-4">
             <div class="user-wrapper">
                 <ul class="users">
-                    <li class="user">
-                        <span class="pending">1</span>
+                    @foreach($users as $user)
+                        <li class="user" id="{{ $user->id }}">
+                            <span class="pending">1</span>
 
-                        <div class="media">
-                            <div class="media-left">
-                                <img src="https://placeholder.com/150" alt="" class="media-object">
+                            <div class="media">
+                                <div class="media-left">
+                                    <img src="{{ $user->avatar }}" alt="" class="media-object">
+                                </div>
+
+                                <div class="media-body">
+                                    <p class="name">{{ $user->name }}</p>
+                                    <p class="email">{{ $user->email }}</p>
+                                </div>
                             </div>
-
-                            <div class="media-body">
-                                <p class="name">QuocBao</p>
-                                <p class="email">QuocBao@gmail.com</p>
-                            </div>
-                        </div>
-
-                    </li>
-                    <li class="user">
-                        <span class="pending">1</span>
-
-                        <div class="media">
-                            <div class="media-left">
-                                <img src="https://placeholder.com/150" alt="" class="media-object">
-                            </div>
-
-                            <div class="media-body">
-                                <p class="name">QuocBao</p>
-                                <p class="email">QuocBao@gmail.com</p>
-                            </div>
-                        </div>
-
-                    </li>
-                    <li class="user">
-                        <span class="pending">1</span>
-
-                        <div class="media">
-                            <div class="media-left">
-                                <img src="https://placeholder.com/150" alt="" class="media-object">
-                            </div>
-
-                            <div class="media-body">
-                                <p class="name">QuocBao</p>
-                                <p class="email">QuocBao@gmail.com</p>
-                            </div>
-                        </div>
-
-                    </li>
-                    <li class="user">
-                        <span class="pending">1</span>
-
-                        <div class="media">
-                            <div class="media-left">
-                                <img src="https://placeholder.com/150" alt="" class="media-object">
-                            </div>
-
-                            <div class="media-body">
-                                <p class="name">QuocBao</p>
-                                <p class="email">QuocBao@gmail.com</p>
-                            </div>
-                        </div>
-
-                    </li>
-                    <li class="user">
-                        <span class="pending">1</span>
-
-                        <div class="media">
-                            <div class="media-left">
-                                <img src="https://placeholder.com/150" alt="" class="media-object">
-                            </div>
-
-                            <div class="media-body">
-                                <p class="name">QuocBao</p>
-                                <p class="email">QuocBao@gmail.com</p>
-                            </div>
-                        </div>
-
-                    </li>
-                    <li class="user">
-                        <span class="pending">1</span>
-
-                        <div class="media">
-                            <div class="media-left">
-                                <img src="https://placeholder.com/150" alt="" class="media-object">
-                            </div>
-
-                            <div class="media-body">
-                                <p class="name">QuocBao</p>
-                                <p class="email">QuocBao@gmail.com</p>
-                            </div>
-                        </div>
-
-                    </li>
-                    <li class="user">
-                        <span class="pending">1</span>
-
-                        <div class="media">
-                            <div class="media-left">
-                                <img src="https://placeholder.com/150" alt="" class="media-object">
-                            </div>
-
-                            <div class="media-body">
-                                <p class="name">QuocBao</p>
-                                <p class="email">QuocBao@gmail.com</p>
-                            </div>
-                        </div>
-
-                    </li>
-                    <li class="user">
-                        <span class="pending">1</span>
-
-                        <div class="media">
-                            <div class="media-left">
-                                <img src="https://placeholder.com/150" alt="" class="media-object">
-                            </div>
-
-                            <div class="media-body">
-                                <p class="name">QuocBao</p>
-                                <p class="email">QuocBao@gmail.com</p>
-                            </div>
-                        </div>
-
-                    </li>
-                    <li class="user">
-                        <span class="pending">1</span>
-
-                        <div class="media">
-                            <div class="media-left">
-                                <img src="https://placeholder.com/150" alt="" class="media-object">
-                            </div>
-
-                            <div class="media-body">
-                                <p class="name">QuocBao</p>
-                                <p class="email">QuocBao@gmail.com</p>
-                            </div>
-                        </div>
-
-                    </li>
-                    <li class="user">
-                        <span class="pending">1</span>
-
-                        <div class="media">
-                            <div class="media-left">
-                                <img src="https://placeholder.com/150" alt="" class="media-object">
-                            </div>
-
-                            <div class="media-body">
-                                <p class="name">QuocBao</p>
-                                <p class="email">QuocBao@gmail.com</p>
-                            </div>
-                        </div>
-
-                    </li>
-                    <li class="user">
-                        <span class="pending">1</span>
-
-                        <div class="media">
-                            <div class="media-left">
-                                <img src="https://placeholder.com/150" alt="" class="media-object">
-                            </div>
-
-                            <div class="media-body">
-                                <p class="name">QuocBao</p>
-                                <p class="email">QuocBao@gmail.com</p>
-                            </div>
-                        </div>
-
-                    </li>
-                    <li class="user">
-                        <span class="pending">1</span>
-
-                        <div class="media">
-                            <div class="media-left">
-                                <img src="https://placeholder.com/150" alt="" class="media-object">
-                            </div>
-
-                            <div class="media-body">
-                                <p class="name">QuocBao</p>
-                                <p class="email">QuocBao@gmail.com</p>
-                            </div>
-                        </div>
-
-                    </li>
+                        </li>
+                    @endforeach
                 </ul>
             </div>
+        </div>
+
+        <div id="messages" class="col-md-8">
+            
         </div>
     </div>
 </div>
