@@ -196,7 +196,10 @@
             @yield('content')
         </main>
     </div>
+
+    <script src="https://js.pusher.com/5.1/pusher.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
     <script>
         var receiver_id = '';
         var my_id = "{{ Auth::id() }}";
@@ -208,9 +211,40 @@
                 }
             });
 
+             // Enable pusher logging - don't include this in production
+            Pusher.logToConsole = true;
+
+            var pusher = new Pusher('49ec2f4f37fe6b25198d', {
+                cluster: 'ap1',
+                forceTLS: true
+            });
+
+            var channel = pusher.subscribe('my-channel');
+            channel.bind('my-event', function(data) {
+                // alert(JSON.stringify(data));
+                if (my_id == data.from){
+                    $('#' + data.to).click();
+                }else if (my_id == data.to){
+                    if (receiver_id == data.from){
+                        // if receiver is selected, reload the selected user
+                        $('#' + data.from).click();
+                    }else{
+                        // if receiver is not selected, and notification for that user
+                        var pending = parseInt($('#' + data.from).find('.pending').html());
+
+                        if (pending){
+                            $('#' + data.from).find('.pending').html(pending + 1);
+                        }else{
+                            $('#' + data.from).append('<span class="pending">1</span>')
+                        }
+                    }
+                }
+            });
+
             $('.user').click(function (){
                 $('.user').removeClass('active');
                 $(this).addClass('active');
+                $(this).find('.pending').remove();
 
                 receiver_id = $(this).attr('id');
                 $.ajax({
@@ -220,6 +254,7 @@
                     cache: false,
                     success: function(data) {
                         $('#messages').html(data);
+                        scrollToBottomFunc();
                     }
                 });
             });
@@ -243,11 +278,19 @@
                         error: function (jqXHR, status, err) {
                         },
                         complete: function (){
+                            scrollToBottomFunc();
                         }
                     })
                 }
             });
         });
+
+        // make a function to scroll down auto
+        function scrollToBottomFunc(){
+            $('.message-wrapper').animate({
+                scrollTop: $('.message-wrapper').get(0).scrollHeight
+            }, 50);
+        }
     </script>
 </body>
 </html>
